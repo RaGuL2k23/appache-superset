@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.env
+
+# Superset
+superset_home/
+instance/
+.superset/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# SQLite cache
+*.db-journal
+
+# VSCode or IDE files
+.vscode/
+.idea/
