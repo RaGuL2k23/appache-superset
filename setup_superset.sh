@@ -1,29 +1,31 @@
 #!/bin/bash
 
-# 1. Generate a strong SECRET_KEY and write it to superset_config.py
-echo "Generating superset_config.py with secure SECRET_KEY..."
+# === CONFIGURABLE SECRET KEY ===
+# Fixed key you want to keep forever (or rotate manually)
+SECRET_KEY='7b17hsqfUbTY+JRfSTQy/i0d8WzjAsSgZrPIyqwvQEeQQCW/CxTscCSM'
+
+# === Step 1: Generate superset_config.py ===
+echo "Writing superset_config.py with secure SECRET_KEY..."
 
 cat > superset_config.py << EOF
-import os
-
-# Generate or set a fixed secure key
-SECRET_KEY = os.environ.get('SUPERSET_SECRET_KEY', '$(openssl rand -base64 42)')
-
+# Superset Configuration
+SECRET_KEY = '${SECRET_KEY}'
 EOF
 
 echo "superset_config.py created."
 
-# 2. Export environment variables
-export FLASK_APP=superset
+# === Step 2: Export environment variables ===
+export FLASK_APP=superset.app:create_app
 export SUPERSET_CONFIG_PATH=$(pwd)/superset_config.py
-export SUPERSET_SECRET_KEY=$(openssl rand -base64 42)
+export SUPERSET_SECRET_KEY=${SECRET_KEY}
 
-# 3. Activate your Python virtual environment - change path if needed
+# === Step 3: Activate Python Virtual Environment ===
 echo "Activating virtual environment..."
-source venv/bin/activate
+source venv/Scripts/activate  # For Git Bash/Windows
 
-# 4. Create admin user
-echo "Creating admin user for Superset..."
-superset fab create-admin
+# === Step 4: Optional - Create admin user (Uncomment if needed) ===
+# echo "Creating admin user..."
+# superset fab create-admin
 
-echo "Done! If successful, you can now run Superset."
+echo "✅ Setup complete. You can now run Superset:"
+echo "   superset run -p 8088"

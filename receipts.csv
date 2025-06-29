@@ -1,4 +1,7 @@
-Date,Store,Item,Amount
-2025-06-27,Tamil SuperMart,Milk,50
-2025-06-27,Tamil SuperMart,Bread,40
-2025-06-28,A2B,Dosa,100
+receipt_id,client_id,transaction_date,merchant_name,merchant_type,amount,currency,payment_method,status
+1,1001,2025-06-01,ABC Restaurant,Restaurant,45.50,USD,Credit Card,Completed
+2,1002,2025-06-02,XYZ Bank,Bank,1500.00,USD,Wire Transfer,Completed
+3,1003,2025-06-02,ShopEasy,E-commerce,75.99,USD,Debit Card,Pending
+4,1001,2025-06-03,FastFood Express,Restaurant,12.30,USD,Cash,Completed
+5,1004,2025-06-04,City Bank,Bank,250.00,USD,Online Banking,Completed
+6,1005,2025-06-05,QuickShop,E-commerce,110.45,USD,Credit Card,Failed
