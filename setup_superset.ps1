@@ -1,6 +1,6 @@
 # === CONFIGURABLE SECRET KEY ===
 # Fixed key you want to keep forever (or rotate manually)
-$SECRET_KEY = '7b17hsqfUbTY+JRfSTQy/i0d8WzjAsSgZrPIyqwvQEeQQCW/CxTscCSM'
+$SECRET_KEY = '__3YGPtOcXVQFTJoOC_d7hOfh2KoFKYUK2_d-h05JSBF--7sdTbeYbKmQf3TT7UXdLQ77j-A2Fq1c4f-OH6UOg'
 
 # === Step 1: Generate superset_config.py ===
 Write-Host "Writing superset_config.py with secure SECRET_KEY..."
